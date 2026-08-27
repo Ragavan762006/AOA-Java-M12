@@ -1,45 +1,22 @@
 
 # EX 2C Job Sequencing using Greedy Approach
+## AIM
 
-## AIM:
-To write a Java program to for given constraints.
-Given an integer array nums and an integer k, return the number of pairs (i, j) where i < j such that |nums[i] - nums[j]| == k.
+To write a Java program using the **Greedy Approach** to schedule jobs before their deadlines and maximize the total profit.
 
-The value of |x| is defined as:
+## ALGORITHM
 
-x if x >= 0.
--x if x < 0.You're given N jobs, each with:
-
-A unique jobId
-
-A deadline (by which it must be completed)
-
-A profit (earned only if completed on or before the deadline)
-
-Each job:
-
-Takes exactly 1 unit of time
-
-Only one job can be done at a time
-
-Your goal is to maximize total profit while completing the maximum number of jobs possible within their deadlines.
-
-## Algorithm
-1. Start  
-2. Read the integer `n` (number of jobs).  
-3. For each job, input three values — `id`, `deadline`, and `profit` — and store them in an array of `Job` objects.  
-4. Sort the jobs in **descending order of profit** using a custom comparator.  
-5. Find the maximum deadline among all jobs to determine the total number of available time slots.  
-6. Create a boolean array `slot[]` of size `maxDeadline + 1` to track which time slots are filled.  
-7. Initialize `totalProfit = 0` and `countJobs = 0`.  
-8. For each job in the sorted list:  
-   - Check from its deadline down to 1 to find a free slot.  
-   - If a free slot is found, mark it as occupied (`slot[j] = true`).  
-   - Add the job’s profit to `totalProfit` and increment `countJobs`.  
-9. After scheduling all possible jobs, return the total number of jobs done (`countJobs`) and the total profit (`totalProfit`).  
-10. Print both values.  
-11. End  
-  
+1. Start.
+2. Read the number of jobs `n`.
+3. Read the **job ID, deadline, and profit** for each job.
+4. Sort the jobs in **descending order of profit**.
+5. Find the maximum deadline.
+6. Create time slots to schedule the jobs.
+7. For each job, find a free slot from its deadline backwards.
+8. If a free slot is found, schedule the job and add its profit.
+9. Count the scheduled jobs.
+10. Print the number of jobs and total profit.
+11. Stop.
 
 ## Program:
 ```
